@@ -80,7 +80,108 @@
 
             return newArr
         }
+        function stringToArrayNumsSub(str1){
+            var newArr=[];
+            var nextPartition=str1.indexOf(',');
+            while(nextPartition!=-1){
+                newArr.push(str1.slice(0,nextPartition));
+                str1= str1.slice(nextPartition+1)
+                nextPartition=str1.indexOf(',')
+            }
+            newArr.push(str1);
+            return newArr;
+        }
+
+        function stringToArrayNumsSplit(str1)
+        {
+            return str1.split(',');
+        }
         //8
+        function getRandom0_10(){
+            return Math.floor(Math.random()*11);
+        }
+        //9
+        function getRandomNumber(rangeNumber){
+            return Math.floor(Math.random()*(rangeNumber+1));
+        }
+        //10
+        function guessRandomNumber(){
+            var userNum= +prompt("guess a number: ");
+            if(userNum==getRandom0_10())
+            {
+                console.log("you guessed correctly");
+            }
+            else{
+                console.log("not the number");
+            }
+        }
+        //11
+        function getRandNumArr(){
+            var newArr=[]
+            for(var i=0;i<10;i++)
+            {
+                newArr[i]=getRandomNumber(100);
+            }
+            return newArr;
+
+        }
+        //12
+        function getMaxUserNumRandom()
+        {
+            var userNum= +prompt("Enter a number: ");
+            return Math.max(getRandom0_10(),userNum);
+        }
+        //13
+        function getMin5UserNums(){
+            var min= Number.MAX_SAFE_INTEGER
+            for(var i=0;i<5;i++)
+            {
+                min = Math.min(min, +prompt("Enter a number:"))
+            }
+            return min;
+
+        }
+        //14
+        function getRandom_UserMinMaxNum(){
+            var randomN = getRandomNumber(100);
+            var userNum = +prompt("Enter a number: ");
+            if (userNum%2==0)
+            {
+                return Math.min(randomN,userNum);
+            }
+            return Math.max(randomN,userNum);
+        }
+        //15
+        function getRandomBigNumArray()
+        {
+            var randomLen = getRandomNumber(364);
+            var randArr = []
+            for(var i=0;i<randomLen;i++)
+            {
+                randArr[i]= getRandomNumber(873);
+            }
+            return randArr;
+        }
+        //16
+        function printRandomPartArr(Arr1){
+            var randomIndex= getRandomNumber(Arr1.length-1)
+            console.log(Arr1[randomIndex]);
+        }
+        //17
+        function replaceIndexString(str1,strIndex,addChar){
+            str1= 
+                str1.substring(0,strIndex)
+                +addChar
+                +str1.substring(strIndex+1);
+            return str1;
+        }
+        function getUserStringWithRandUpper(){
+            var userStr= prompt("Enter text:")
+            var randomNum= getRandomNumber(userStr.length-1)
+            userStr=replaceIndexString(userStr,randomNum, userStr[randomNum].toUpperCase() )
+            return userStr;
+        }
+
 
 
 
@@ -90,8 +191,12 @@
         console.log(makeIndexAfterEveryChar(myStr));
         console.log(makeEverySecond2(myStr));
         console.log(stringToArrayNums(myStrNums));
-        
-        
+        console.log(stringToArrayNumsSub(myStrNums));
+        var randomArr = getRandNumArr();
+        console.log(randomArr)
+        // console.log(getMin5UserNums())
+        console.log(getRandomBigNumArray());
+
 
         
 
