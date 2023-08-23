@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //1
+        function printEveryChar(str1){
+            var strLen=str1.length
+            for (var i=0;i<strLen;i++) {
+                console.log(str1[i]);
+            }
+        }
+        //2
+        function makeIndexAfterEveryChar(str1){
+            var strLen=str1.length
+            var newStr= ""
+            for(var i=0;i<strLen;i++)
+            {
+                newStr= newStr+ str1[i]+i
+            }
+            return newStr
+        }
+        //3
+        function makeEverySecond2(str1){
+            var newStr=""
+            var strLen= str1.length
+            for(var i=0;i<strLen;i++)
+            {
+                if (i%2==0){
+                    newStr+=2
+                }
+                else{
+                    newStr+=str1[i]
+                }
+            }
+            return newStr
+        }
+        //4
+        function registerStartsA(str1){
+            if (str1[0]=="A"){
+                console.log("hello");
+            }
+            else{
+                console.log("bye");
+            }
+        }
+        //5
+        function registerEndsE(str1){
+            if (str1[str1.length-1]=="E"){
+                console.log("yes")
+            }
+            else{
+                console.log("no");
+            }
+        }
+        //6
+        function getUppercaseStr(str1){
+            return str1.toUpperCase();
+        }
+        //7
+        function stringToArrayNums(str1){
+            var newArr=[];
+            var newStr="";
+            for( var i=0;i<str1.length;i++)
+            {
+                if(str1[i]==','){
+                    newArr.push(newStr)
+                    newStr=""
+                }
+                else{
+                    newStr+=str1[i]
+                }
+            }
+            newArr.push(newStr)
+
+            return newArr
+        }
+        //8
+
+
+
+        var myStr= "Lorem, ipsum dolor.";
+        var myStrNums= '41232,3213,421,4,2,13,5'
+        printEveryChar(myStr)
+        console.log(makeIndexAfterEveryChar(myStr));
+        console.log(makeEverySecond2(myStr));
+        console.log(stringToArrayNums(myStrNums));
+        
+        
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
