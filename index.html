@@ -80,6 +80,7 @@
 
             return newArr
         }
+
         function stringToArrayNumsSub(str1){
             var newArr=[];
             var nextPartition=str1.indexOf(',');
@@ -181,7 +182,138 @@
             userStr=replaceIndexString(userStr,randomNum, userStr[randomNum].toUpperCase() )
             return userStr;
         }
+        //18
+        function printUserName_AgeRand(){
+            var nameArr=[]
+            var ageArr=[]
+            var randomNum= getRandom0_10();
+            for(var i=0;i<2;i++){
+                nameArr.push(prompt("Enter a name"))
+                ageArr.push(+prompt("Enter an age:"))
+            }
 
+            if(nameArr[0][0]==nameArr[1][0])
+            {
+                console.log("random num: "+randomNum);
+            }
+            else if(getLastChar(nameArr[0])== getLastChar(nameArr[1])){
+                console.log("the letter is: "+getLastChar(nameArr[0]));
+            }
+            else{
+                console.log("Ages: "+ ageArr[0]+", "+ ageArr[1]);
+            }
+
+        }
+
+        function getLastChar(str1){
+            return str1[str1.length-1];
+        }
+        //19
+        function printRandPartUserText(){
+            var userStr = prompt("Enter some text")
+            var randomNum = getRandomNumber(5);
+            var minRand_Len= Math.min(randomNum,userStr.length)
+            console.log(userStr.substring(0,minRand_Len));
+
+        }
+        //20
+        function printRandUserPie(){
+            var userNum= +prompt("Enter a number")
+            var randomNum= getRandomNumber(userNum)
+            if(userNum%3==0)
+            {
+                for(var i=0;i<randomNum;i++)
+                {
+                    console.log(randomNum);
+                }
+            }
+            else{
+                console.log(randomNum*Math.PI);
+            }
+        }
+        //21
+        function printDate_HourNow(){
+            var dateNow = new Date()
+            console.log("hour:  "+dateNow.getMonth()+" ,Date: "+getFullDate(dateNow))
+        }
+
+        function getFullDate(dateObject){
+            return dateObject.getDate() +'/'+(dateObject.getMonth()+1)+'/'+dateObject.getFullYear();
+        }
+        function getFullDateMDY(dateObject){
+            return  (dateObject.getMonth()+1)+'/'+ dateObject.getDate()+'/'+dateObject.getFullYear();
+        }
+        //22
+        function printDateFromStr(dateStr){
+            console.log(new Date(dateStr))
+        }
+
+        //23
+        function printDateFromUser(){
+            var dateStr= prompt("Enter a date: ")
+            console.log(new Date(dateStr))
+        }
+
+        function getDateFromUser(promptStr="Enter a date: "){
+            var dateStr = prompt(promptStr)
+            return new Date(dateStr);
+        }
+        //24
+        function getMonthFromUserDate(){
+            return getDateFromUser().getMonth()
+        }
+        //25
+        function getHourFromUserDate(){
+            return getDateFromUser().getHours()
+        }
+        //26
+        function getYearFromUserDate(){
+            return getDateFromUser().getFullYear()
+        }
+        //27
+        function getMinuteFromUserDate(){
+            return getDateFromUser().getMinutes()
+        }
+        //28
+        function getEarlierDate(){
+            var usrDate1= getDateFromUser()
+            var usrDate2 = getDateFromUser()
+            if( userDate1>userDate2)
+            {
+                return usrDate2
+            }
+            return usrDate1
+        }
+        //29
+        function getUserAge(){
+            var usrDate1 = getDateFromUser("Enter your Birth Day");
+            var dateNow = new Date();
+            var millSecInYear = 3.154e+10;
+            return Math.floor( (dateNow.getTime()-usrDate1.getTime()) /millSecInYear);
+        }
+        //30
+        function printIsUserMinor(){
+            if(getUserAge()>18)
+            {
+                alert("Allowed to enter")
+            }
+            else{
+                console.log("user not of age")
+            }
+            
+        }
+        //31
+        function printUserLocation(){
+            var dateNow = Date();
+            
+            
+            console.log(
+                dateNow.substring( 
+                    dateNow.indexOf('(')+1, dateNow.lastIndexOf(')')
+                )
+            );
+        }
+        
 
 
 
@@ -196,11 +328,10 @@
         console.log(randomArr)
         // console.log(getMin5UserNums())
         console.log(getRandomBigNumArray());
-
-
-        
-
-
+        printDateFromStr('11/30/2022')
+        // console.log( getUserAge())
+        // printIsUserMinor();
+        printUserLocation();
 
 
     </script>

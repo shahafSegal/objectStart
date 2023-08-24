@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //70
+        var userObj={
+            fName:"shmoolik",
+            lName:"kipod",
+            age:5,
+            email:"kipod21@mail.com",
+            id:1
+        
+        }
+        console.log(userObj)
+        //71
+        var dog ={
+            name:'bucky',
+            age: 12,
+            sex: 'M',
+            breed:'Rottwailer',
+            id:2
+        }
+        console.log(dog)
+        //72
+        var car={
+            color: 'Purple',
+            nO_wheels: 4 ,
+            manufac: 'Mercedes Benz',
+            id:3
+        } 
+        console.log(car)
+        //73
+        console.log(userObj.fName)
+        //74
+        console.log(dog.age);
+        //75
+        console.log(car.color,car.manufac);
+        //76
+        function changeUserLName() {
+            userObj.lName= prompt("enter a new last name")
+        }
+        //77
+        function changeDogBreed(){
+            dog.breed= prompt("Enter a new dog breed:")
+        }
+        //78
+        function changeCarWheels(){
+            car.nO_wheels= +prompt("Enter new number of wheels")
+        }
+        //79
+        function changeUserProp(){
+            var propertUser=prompt("enter a part to change in user")
+            userObj[propertUser]= prompt("enter a new value for "+propertUser)
+        }
+        //80
+        function changeDogProp(){
+            var propertDog=prompt("enter a part to change in dog")
+            dog[propertDog]= prompt("enter a new value for "+propertDog)
+        }
+        //81
+        function changeCarProp(){
+            var propertCar=prompt("enter a part to change in car")
+            car[propertCar]= prompt("enter a part to change in car "+propertCar)
+        }
+
+
+        //83-84
+        var objectArr= [userObj,dog,car]
+        console.log(objectArr);
+        console.log(objectArr[1].id)
+
+        function printObjArrId(){
+            for(var i =0;i< objectArr.length;i++){
+                console.log(objectArr[i].id);
+            }
+        } 
+        printObjArrId();
+
+        function createNewUser(){
+            var usrFName= prompt("Enter a First name")
+            var usrLName= prompt("Enter a Last name")
+            var usrAge = +prompt("Enter an Age")
+            var usrEmail = prompt("Enter an Email")
+            var usrId = +prompt ("Enter an Id")
+
+            var newUser={
+                fName: usrFName,
+                lName:usrLName,
+                age:usrAge,
+                email: usrEmail,
+                id:usrId
+            }
+            return newUser;
+        }
+
+        function createNewDog(newId)
+        {
+            var newDog ={
+                name: prompt('Enter a name'),
+                age: +prompt('Enter an Age'),
+                sex: prompt('Enter Sex of dog'),
+                breed:prompt("enter a Breed"),
+                id:newId
+            }
+            return newDog
+        }
+        //87
+        function getDogArr3(){
+            var dogArr=[]
+            for (var i=0;i<3;i++){
+                dogArr.push(createNewDog(i))
+            }
+            return dogArr
+        }
+        //88
+        function getDogArrUserLen(){
+            var dogArr=[]
+            var arrLen= +prompt("enter a legth for dog array")
+            for(var i= 0;i<arrLen;i++)
+            {
+                dogArr.push(createNewDog(i))
+            }
+            return dogArr;
+        }
+        //89
+        function createObjFromUser(nO_Prop){
+            var newObj ={}
+            for (var i=0;i<nO_Prop;i++)
+            {
+                var proper= prompt("Enter new Property: ")
+                newObj[proper]= prompt("Enter value for "+proper+":")
+            }
+            return newObj
+        }
+
+        function createObjFromUser3Len()
+        {
+            return createObjFromUser(3);
+        }
+
+        //90
+        function createObjArrFromUser(){
+            var objeArr=[]
+            var objArrLen= +prompt("How much objects would you like?")
+            var objNumOProp = +prompt("How much properties for each Object")
+            for(var j=0 ; j<objArrLen;j++)
+            {
+                objeArr.push(createObjFromUser(objNumOProp))
+            }
+            return objeArr
+        }
+
+
+        // console.log(getDogArr3());
+        // console.log(getDogArrUserLen());
+        console.log(createObjArrFromUser());
+    </script>
+
+
+    
+</body>
+</html>
