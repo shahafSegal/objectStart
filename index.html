@@ -69,7 +69,7 @@
             for( var i=0;i<str1.length;i++)
             {
                 if(str1[i]==','){
-                    newArr.push(newStr)
+                    newArr.push(+newStr)
                     newStr=""
                 }
                 else{
@@ -85,7 +85,7 @@
             var newArr=[];
             var nextPartition=str1.indexOf(',');
             while(nextPartition!=-1){
-                newArr.push(str1.slice(0,nextPartition));
+                newArr.push(+(str1.slice(0,nextPartition)));
                 str1= str1.slice(nextPartition+1)
                 nextPartition=str1.indexOf(',')
             }
@@ -313,6 +313,61 @@
                 )
             );
         }
+
+        //32 
+        function getRandDate(){
+            var maxDate= new Date(2022,0,31,23,59,59)
+            var minDate= new Date(1990,0,31)
+            var randomTime= getRandomNumber(maxDate.getTime()-minDate.getTime())+minDate.getTime() 
+            var randDate= new Date(randomTime)
+            return randDate
+        }
+        //33
+        function getK_VStrLongestValue(keyValStr){
+            var kvArr= stringToArrayNums(keyValStr)
+            var longestVal="";
+            for (var i=0;i<kvArr.length;i++){
+                var curVal= kvArr[i].substring( kvArr[i].indexOf(':')+1)
+                if(longestVal.length<curVal.length)
+                {
+                    longestVal=curVal;
+                }
+
+            }
+            return longestVal.length;
+        }
+        //34
+        function getK_VStrValueFromKey(keyValStr,keyInStr=prompt("Enter a Key")){
+            var kvArr= stringToArrayNums(keyValStr);
+            for (var i=0;i<kvArr.length;i++){
+                if(getKeyK_VPart(kvArr[i])==keyInStr)
+                {
+                    var curVal= getValueK_VPart(kvArr[i])
+                    return curVal;
+                }
+
+            }
+            return null;
+        }
+        function getKeyK_VPart(k_vPart){
+            return k_vPart.substring(0, k_vPart.indexOf(':'));
+        }
+
+        function getValueK_VPart(k_vPart){
+            return k_vPart.substring( k_vPart.indexOf(':')+1);
+        }
+
+        //35
+        function getK_VstrKeyTotalLength(keyValStr)
+        {
+            var kvArr= stringToArrayNums(keyValStr);
+            var sumLen=0
+            for (var i=0;i<kvArr.length;i++){
+               sumLen+= getKeyK_VPart(kvArr[i]).length
+            }
+            return sumLen
+        }
+
         
 
 
@@ -332,8 +387,13 @@
         // console.log( getUserAge())
         // printIsUserMinor();
         printUserLocation();
+        console.log(getRandDate);
+        var kvStr1 ='name:jacobdsdasad,id:44,randomNum:4891274'
+        console.log(getK_VStrLongestValue(kvStr1));
+        console.log(getK_VStrValueFromKey(kvStr1,'name'));
+        console.log(getK_VstrKeyTotalLength(kvStr1));
 
-
+        
     </script>
 </body>
 </html>
