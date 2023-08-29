@@ -367,6 +367,82 @@
             }
             return sumLen
         }
+        //36
+        function getK_VstrValueTotalLength(keyValStr)
+        {
+            var kvArr= stringToArrayNums(keyValStr);
+            var sumLen=0
+            for (var i=0;i<kvArr.length;i++){
+               sumLen+= getValueK_VPart(kvArr[i]).length
+            }
+            return sumLen
+        }
+        //37
+        function checkLenStr(str1){
+            if(str.length>5)
+            {
+                return "long"
+            }
+            return "short"
+        }
+        //38 
+        function find_aInStr(str1){
+            var aLoc= str1.indexOf('a');
+            if(aLoc==-1)
+            {
+                return aLoc;
+            }
+            return "not found"
+        }
+        //39
+        function is_rInStr(str1){
+            return str1.indexOf('r')!=-1;
+        }
+        //40
+        function isCharInStr(str1,findChar){
+            return str1.indexOf(findChar)!=-1;
+        }
+        //41
+        function printCharInStr(str1,findChar){
+            var aLoc= str1.lastIndexOf(findChar);
+            if(aLoc==-1)
+            {
+                console.log(aLoc); 
+            }
+            else{
+                console.log("not found");
+            }
+        }
+        //42
+        function first3Sayo(){
+            return "sayonara".substr(0,3)
+        }
+        //44
+        function get4AfterYSayo(){
+            var Sayo="sayonara";
+            var posY= Sayo.indexOf('y')
+
+            return Sayo.substr(posY,4)
+
+        }
+
+        //45
+        function getAfterOSayo(){
+            var Sayo ="sayonara";
+            var posO = Sayo.indexOf('o')
+            return Sayo.substr(posO)
+        }
+
+        //46
+        function getStrFromIndex(str1,ind1)
+        {
+            if( str1.length<ind1+1)
+            {
+                return "ERROR: index too big"
+            }
+            return str1.substr(ind1);
+
+        }
 
         
 
@@ -389,6 +465,7 @@
         printUserLocation();
         console.log(getRandDate);
         var kvStr1 ='name:jacobdsdasad,id:44,randomNum:4891274'
+        kvArr= ["name:jacob","id:44","randomNum:38213"]
         console.log(getK_VStrLongestValue(kvStr1));
         console.log(getK_VStrValueFromKey(kvStr1,'name'));
         console.log(getK_VstrKeyTotalLength(kvStr1));
