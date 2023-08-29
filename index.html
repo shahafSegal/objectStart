@@ -69,7 +69,7 @@
             for( var i=0;i<str1.length;i++)
             {
                 if(str1[i]==','){
-                    newArr.push(+newStr)
+                    newArr.push(newStr)
                     newStr=""
                 }
                 else{
@@ -325,9 +325,10 @@
         //33
         function getK_VStrLongestValue(keyValStr){
             var kvArr= stringToArrayNums(keyValStr)
+            console.log(kvArr);
             var longestVal="";
             for (var i=0;i<kvArr.length;i++){
-                var curVal= kvArr[i].substring( kvArr[i].indexOf(':')+1)
+                var curVal=  getValueK_VPart(kvArr[i])
                 if(longestVal.length<curVal.length)
                 {
                     longestVal=curVal;
@@ -443,6 +444,151 @@
             return str1.substr(ind1);
 
         }
+        //48
+        function getStrFromIndexMax3(str1,ind1)
+        {
+            if( str1.length<ind1+1)
+            {
+                return "ERROR: index too big"
+            }
+            var sendStr= str1.substr(ind1);
+            if(sendStr.length>3)
+            {
+                return sendStr.substr(0,3);
+            }
+            return sendStr;
+        }
+
+        //50
+
+        function getPartOfString(str1,ind1,lengthCut)
+        {
+            var sendStr= str1.substr(ind1,lengthCut)
+            if (sendStr==''||sendStr.length!=lengthCut)
+            {
+                return "ERROR: cant take this part of string"
+            }
+            return sendStr
+        }
+        //51
+        function first3SayoV2(){
+            return "sayonara".substring(0,3)
+        }
+        //53
+        function get4AfterYSayoV2(){
+            var Sayo="sayonara";
+            var posY= Sayo.indexOf('y')
+
+            return Sayo.substring(posY,posY+4)
+
+        }
+        //54
+        function getAfterOSayoV2(){
+            var Sayo="sayonara";
+            var posO= Sayo.indexOf('o')
+
+            return Sayo.substring(posO)
+
+        }
+
+        //55
+        function printUserFullName(){
+            var fullNameUsr= prompt("Enter your full name:")
+            console.log("Length: "+fullNameUsr.length);
+            if (fullNameUsr.indexOf(' ')!=-1)
+            {
+                console.log("have a space in it");
+                var nameArr= divideBySpace(fullNameUsr);
+                console.log("First Name: "+nameArr[0] +"  ,Last Name: "+nameArr[1] );
+            }
+            else{
+                console.log("doesn't have a space in it");
+            }
+        }
+
+        function divideBySpace(spacedStr){
+            return spacedStr.split(" ");
+        }
+        //56 
+        function isStringsEqualLow(str1,str2){
+            str1= str1.toLowerCase()
+            str2= str2.toLowerCase()
+            return str1== str2
+        }
+        //57 
+        function isStringsEqualUp(str1,str2){
+            str1= str1.toUpperCase()
+            str2= str2.toUpperCase()
+            return str1== str2
+        }
+        //58
+        function printUserLongerName(){
+            var fullNameArr=['','']
+            fullNameArr[0]= prompt("Enter your first name:")
+            fullNameArr[1]= prompt("Enter your last name:")
+            if (fullNameArr[0].length>fullNameArr[1].length)
+            {
+                console.log(fullNameArr[0]);
+            }
+            else
+            {
+                console.log(fullNameArr[1]);
+            }
+        }
+        //59
+        function printUserNameSpecific(){
+            var fullNameArr=['','']
+            fullNameArr[0]= prompt("Enter your first name:")
+            fullNameArr[1]= prompt("Enter your last name:")
+            if (isCharInStr(fullNameArr[0],'a')){
+                console.log("first name contains 'a'");
+            }
+            else{
+                console.log("first name doesn't contains 'a'");
+            }
+
+            if (isCharInStr(fullNameArr[1],'api')){
+                console.log("last name contain 'api'");
+            }
+            else{
+                console.log("first name doesn't contain 'api'");
+            }
+
+        }
+
+        //61
+        function getStrLongShort5(str1){
+            if(str1.length>5)
+            {
+                return "long";
+            }
+            return "short";
+
+        }
+
+        //62
+        function getStrShort3YN(str1){
+            if(str1.length>3)
+            {
+                return "no";
+            }
+            return "yes";
+
+        }
+        //63
+        function getStrLongOrChar(str1,char1){
+            if(str1.length>6)
+            {
+                return str1;
+            }
+            return str1.indexOf(char1);
+        }
+        
+
+
+
+
+
 
         
 
